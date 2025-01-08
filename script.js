@@ -29,6 +29,7 @@ function createRandomID(){
     }
 
     setUser();
+    console.log(users);
 }
 
 function setUser(){
