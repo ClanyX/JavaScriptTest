@@ -37,3 +37,10 @@ function setUser(){
     idText.innerText = id;
     nameText.innerText = users[id];
 }
+
+const themeBtn = document.getElementById('btn');
+const body = document.body;
+
+themeBtn.addEventListener('click', () =>{
+    body.dataset.bsTheme = body.dataset.bsTheme === 'light' ? 'dark' : 'light';
+});
