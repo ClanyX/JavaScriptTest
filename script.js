@@ -44,3 +44,22 @@ const body = document.body;
 themeBtn.addEventListener('click', () =>{
     body.dataset.bsTheme = body.dataset.bsTheme === 'light' ? 'dark' : 'light';
 });
+
+const textList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
+const textChange = document.getElementById('changeText');
+
+const changeText = setInterval(() =>{
+    textChange.innerText = textList[randomNumber(0, textList.length - 1)];
+}, 1000);
+
+function randomNumber(min, max){
+    let randomNum =  Math.floor(Math.random() * (max - min + 1)) + min;
+    let lastNumber = 0;
+
+    if(randomNum !== lastNumber){
+        lastNumber = randomNum;
+        return randomNum;
+    } else{
+        return randomNumber(min, max);
+    }
+}
