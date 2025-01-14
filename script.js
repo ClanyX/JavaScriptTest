@@ -63,3 +63,13 @@ function randomNumber(min, max){
         return randomNumber(min, max);
     }
 }
+
+//Person
+function person(name, lastName, gender, age) {
+    this.name = name;
+    this.lastName = lastName;
+    this.gender = gender;
+    this.age = age;
+}
+
+//const personArray = [
