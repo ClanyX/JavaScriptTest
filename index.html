@@ -36,13 +36,15 @@
         </div>
 
         <div class="mt-3">
-            <h3>Person</h3>
-            <div>Name: <input type="text"></div>
-            <div>LastName: </div>
-            <div>Gender: </div>
-            <div>Age: </div>
-
-            <button class="btn btn-success mt-2" onclick="">Set person</button>
+            <form>
+                <h3>Person</h3>
+                <div>Name: <input id="name" type="text" placeholder="Name" maxlength="10" value=""></div>
+                <div>LastName: <input id="lastName" type="text" placeholder="LastName" maxlength="10" value=""></div>
+                <div>Gender: Man: <input type="radio" name="gender" value="man"> Female: <input type="radio" name="gender" value="female"></div>
+                <div>Age: <input id="age" type="number" min="1" max="100" value=""></div>
+    
+                <button type="button" class="btn btn-success mt-2" onclick="setPerson()">Set person</button>
+            </form>
         </div>
 
         <button id="btn" class="btn btn-primary mt-3">THEME</button>

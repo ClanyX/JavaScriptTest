@@ -72,4 +72,15 @@ function person(name, lastName, gender, age) {
     this.age = age;
 }
 
-//const personArray = [
+personArray = [];
+
+
+//toto nefunguje
+function setPerson(){
+    const name = document.getElementById('name').value;
+    const lastName = document.getElementById('lastName').value;
+    //const gender = document.getElementById('input[name="gender"]:checked').value;
+    const age = document.getElementById('age').value;
+
+    console.log(name);
+}
