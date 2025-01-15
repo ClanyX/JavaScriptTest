@@ -29,7 +29,6 @@ function createRandomID(){
     }
 
     setUser();
-    console.log(users);
 }
 
 function setUser(){
@@ -64,23 +63,54 @@ function randomNumber(min, max){
     }
 }
 
-//Person
-function person(name, lastName, gender, age) {
-    this.name = name;
-    this.lastName = lastName;
-    this.gender = gender;
-    this.age = age;
-}
+const personArray = [];
 
-personArray = [];
-
-
-//toto nefunguje
-function setPerson(){
-    const name = document.getElementById('name').value;
+function setPerson() {
+    const name = document.getElementById('personName').value;
     const lastName = document.getElementById('lastName').value;
-    //const gender = document.getElementById('input[name="gender"]:checked').value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
     const age = document.getElementById('age').value;
 
-    console.log(name);
+    const person = {
+        id: personArray.length + 1,
+        name: name,
+        lastName: lastName,
+        gender: gender,
+        age: age
+    };
+
+    personArray.push(person);
+
+    //clear form
+    document.getElementById('personName').value = '';
+    document.getElementById('lastName').value = '';
+    document.querySelector('input[name="gender"]:checked').checked = false;
+    document.getElementById('age').value = '';
 }
+
+document.getElementById('personForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    setPerson();
+});
+
+function getPerson(){
+    const personId = document.getElementById('personId').value;
+    const person = personArray.find(person => person.id === parseInt(personId));
+
+    if(person){
+        document.getElementById('personInfo').innerHTML = `
+            <div>Name: ${person.name}</div>
+            <div>LastName: ${person.lastName}</div>
+            <div>Gender: ${person.gender}</div>
+            <div>Age: ${person.age}</div>
+        `;
+    } else{
+        alert('Person not found');
+    }
+    document.getElementById('personId').value = '';
+}
+
+document.getElementById('setForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    getPerson();
+});
