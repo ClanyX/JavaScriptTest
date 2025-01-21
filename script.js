@@ -37,13 +37,6 @@ function setUser(){
     nameText.innerText = users[id];
 }
 
-const themeBtn = document.getElementById('btn');
-const body = document.body;
-
-themeBtn.addEventListener('click', () =>{
-    body.dataset.bsTheme = body.dataset.bsTheme === 'light' ? 'dark' : 'light';
-});
-
 const textList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
 const textChange = document.getElementById('changeText');
 
