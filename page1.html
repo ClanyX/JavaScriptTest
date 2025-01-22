@@ -42,6 +42,19 @@
         </div>
     </nav><hr class="my-0">
 
+    <form id="submitBtn">
+        <div class="container-fluid justify-content-center text-center mt-3 border border-2 border-white p-3" style="width: 400px;">
+            <div><input type="text" id="username" placeholder="Enter your name"></div>
+            <div><input type="text" id="lastname" placeholder="Enter your last name"></div>
+            <div><input type="number" id="age" placeholder="Enter your age"></div>
+            <div>Gender: Man: <input type="radio" name="gender" value="man"> Female: <input type="radio" name="gender" value="female"></div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+    <div class="border border-2 border-white p-3">Id of person: <span id="personId"></span></div>
+
+    <script src="page1.js"></script>
     <script src="theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
