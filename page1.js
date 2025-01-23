@@ -27,11 +27,39 @@ function setNewID(){
         genderAssci += genderCode;
     }
 
-    const outputText = `${(person.age * 1e-3 + person.id).toString(8)}##${(person.username).split('').reverse().join('')}##${(person.lastname).split('').reverse().join('')}##${genderAssci}`;
+    const outputText = `${((parseInt(person.age)).toString(2) * 1e-8 + person.id)}##${(person.username).split('').reverse().join('')}##${(person.lastname).split('').reverse().join('')}##${genderAssci}`;
     output.innerHTML = outputText;
 }
 
 document.getElementById('submitBtn').addEventListener('submit', function(event) {
     event.preventDefault();
     setNewID();
+});
+
+function copyToClip(){
+    const outputT = document.getElementById('personId').innerText;
+    navigator.clipboard.writeText(outputT).then(() => {
+        alert('Copied to clipboard');
+    }).catch((err) => {
+        alert('Failed to copy', err);
+    });
+}
+
+function getPersonID(){
+    const personId = ((document.getElementById('getIdInput').value).trim()).split('##');
+    const ageHelper = personId[0].split('.');
+    const person = {
+        id: parseInt(personId[0]),
+        username: personId[1].split('').reverse().join(''),
+        lastname: personId[2].split('').reverse().join(''),
+        age: parseInt((ageHelper[1]), 2),
+        gender: (personId[3].length <= 9) ? 'man' : 'female'
+    }
+    document.getElementById('personInfo').innerHTML = `ID: ${person.id} <br> Username: ${person.username} <br> Lastname: ${person.lastname} <br> Age: ${person.age} <br> Gender: ${person.gender}`;
+    document.getElementById('getIdInput').value = '';
+}
+
+document.getElementById('getId').addEventListener('submit', function(event){
+    event.preventDefault();
+    getPersonID();
 });
